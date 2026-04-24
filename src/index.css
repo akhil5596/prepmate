@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   PrepMate — Global Design System
+   ============================================ */
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-surface-950 text-gray-100 font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-surface-900;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-700 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-500;
+  }
+
+  ::selection {
+    @apply bg-primary-600/40 text-white;
+  }
+}
+
+@layer components {
+  /* Glass Card */
+  .glass-card {
+    @apply bg-surface-800/50 backdrop-blur-xl border border-white/[0.06] rounded-2xl;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.03),
+      0 4px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300;
+  }
+  .glass-card-hover:hover {
+    @apply border-primary-500/30;
+    box-shadow:
+      0 0 0 1px rgba(99, 102, 241, 0.15),
+      0 8px 40px rgba(99, 102, 241, 0.1);
+    transform: translateY(-2px);
+  }
+
+  /* Gradient Buttons */
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2 px-6 py-3 
+           font-semibold text-white rounded-xl overflow-hidden
+           transition-all duration-300;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  }
+  .btn-primary:hover {
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
+    transform: translateY(-1px);
+  }
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 
+           font-semibold text-gray-300 rounded-xl
+           border border-white/10 bg-white/5
+           transition-all duration-300;
+  }
+  .btn-secondary:hover {
+    @apply text-white border-primary-500/40 bg-primary-500/10;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2
+           font-medium text-gray-400 rounded-lg
+           transition-all duration-200;
+  }
+  .btn-ghost:hover {
+    @apply text-white bg-white/5;
+  }
+
+  /* Input Fields */
+  .input-field {
+    @apply w-full px-4 py-3 bg-surface-800/80 border border-white/10 
+           rounded-xl text-gray-100 placeholder-gray-500
+           focus:outline-none focus:border-primary-500/50 focus:ring-2 focus:ring-primary-500/20
+           transition-all duration-200;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  .badge-easy { @apply bg-emerald-500/15 text-emerald-400 border border-emerald-500/20; }
+  .badge-medium { @apply bg-amber-500/15 text-amber-400 border border-amber-500/20; }
+  .badge-hard { @apply bg-rose-500/15 text-rose-400 border border-rose-500/20; }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #818cf8, #c084fc, #06b6d4);
+  }
+
+  /* Glow effects */
+  .glow-primary {
+    box-shadow: 0 0 60px rgba(99, 102, 241, 0.15), 0 0 120px rgba(99, 102, 241, 0.05);
+  }
+  .glow-cyan {
+    box-shadow: 0 0 60px rgba(6, 182, 212, 0.15), 0 0 120px rgba(6, 182, 212, 0.05);
+  }
+
+  /* Animated background grid */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Stat card */
+  .stat-card {
+    @apply glass-card p-5 flex flex-col gap-1;
+  }
+  .stat-value {
+    @apply text-3xl font-bold gradient-text;
+  }
+  .stat-label {
+    @apply text-sm text-gray-400;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
